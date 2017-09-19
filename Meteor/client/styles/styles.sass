@@ -1,0 +1,354 @@
+::-webkit-scrollbar
+  width: 7px
+  border-radius: 5px
+
+::-webkit-scrollbar-track
+  background-color: #ccc
+  border-left: 1px solid #ccc
+  border-radius: 5px
+
+::-webkit-scrollbar-thumb
+  background-color: #3D5AFE
+  border-radius: 5px
+
+::-webkit-scrollbar-thumb:hover
+  background-color: #536DFE
+
+html, body
+  width: auto !important
+  display: block !important
+
+
+
+.mdl-layout
+  min-height: 500px
+
+.loading
+  margin: auto
+
+#side-nav
+  position: fixed
+
+
+header
+  .mdl-layout__header-row
+    width: 100%
+    max-width: 1000px
+    margin: auto !important
+    padding: 0 20px !important
+    position: relative
+
+  #login, #logout
+    margin: 0 0.3em 0 0.4em
+
+  .page-headline
+    margin-left: 1em
+    font-size: 20px
+
+  .hot-briefs
+    position: absolute
+    left: 400px
+    top: 15px
+    i, a
+      line-height: 36px
+      vertical-align: middle
+    a
+      cursor: pointer
+      color: rgba(255,255,255,.87)
+      font-size: 16px
+      text-transform: initial
+
+  .filter-form
+    position: relative
+    .filter-cancel
+      position: absolute
+      right: 0px
+      top: 1em
+      font-size: 1.5em
+
+    .filter-label:after
+      background-color: rgba(255,255,255,.3)
+
+    .filter-label.active:after
+      background-color: rgba(255,255,255,1)
+
+.mdl-layout__drawer .mdl-navigation
+  padding: 0 !important
+
+.summaries-grid
+  overflow: hidden
+
+main .mdl-card
+  border-bottom: 1px solid #ddd
+  .mdl-card__actions
+    margin-top: auto
+
+  .summary_visits
+    display: inline-block
+    height: 36px
+    line-height: 36px
+    vertical-align: middle
+    color: rgba(0,0,0,.4)
+    i
+      font-size: 21px
+      margin-top: 7px
+
+
+.brief-nav
+  a
+    cursor: pointer
+
+  #logout
+    float: right
+    opacity: 0.7
+
+
+.main-content
+  width: 100%
+  max-width: 1000px
+  margin: 0 auto
+  display: flex !important
+  overflow: auto !important
+
+.cards-divider
+  width: 100%
+  display: block
+  font-size: 24px
+  color: rgba(0,0,0,.25)
+  padding: 10px
+  margin: 20px 0 10px
+
+
+.mdl-card__title
+
+  .mdl-card__title-text
+    font-size: 21px
+    color: rgba(0,0,0,.87)
+
+  &.with-img
+    padding: 0
+    min-height: 176px
+
+    .mdl-card__title-text
+      color: #fff
+      padding: 16px
+      background: rgba(0,0,0,.6)
+      width: 100%
+
+
+.mdl-card__supporting-text
+  a
+    text-decoration: none
+    color: rgb(63,81,181)
+
+
+
+
+.mdl-card
+
+  .card-thumbnail
+    padding: 0px 16px 6px
+    flex-grow: 1
+    display: flex
+    img
+      align-self: flex-end
+
+  .card-menu-button
+    float: right
+    color: rgba(0,0,0,.5)
+
+  .mdl-menu__container
+    right: 0px
+    bottom: 46px
+
+  .mdl-menu__outline
+    width: 100%
+    height: 100%
+
+  .mdl-menu
+    clip: auto
+    .mdl-menu__item
+      transition-delay: 0.2s
+
+
+dialog.mdl-dialog
+  transition: 0.1s
+  z-index: 100
+  top: 40px
+  width: 100%
+  max-width: 500px
+
+  .mdl-dialog__title .info
+    font-size: 20px
+    color: rgba(0,0,0,.5)
+
+  .user-info .mdl-cell
+    margin: 0
+
+  .description
+    padding: 22px 0 20px
+    font-size: 18px
+    text-align: right
+
+  #close-dialog
+    float: right
+    color: rgb(244, 67, 54)
+
+  .mdl-button--raised
+    color: rgba(255,255,255,.86)
+
+
+.edit_brief_form
+  width: 100%
+  .mdl-list__item
+    padding: 0 16px
+    min-height: 25px
+    font-size: 13px
+    color: rgba(0,0,0,.7)
+
+  .column-check
+    min-width: 24px
+    width: 24px
+    height: 24px
+    margin-right: 6px
+
+    i
+      font-size: 16px
+
+  .mdl-switch
+    width: 24px
+    margin-right: 0.4em
+
+  .return_to_topics
+    button
+      max-width: 300px
+    *
+      line-height: 36px
+      vertical-align: middle
+      display: inline
+    h6
+      margin-left: 16px
+
+  .topics
+    list-style: none
+    margin: 0
+    padding: 0
+
+    .topic
+      display: inline-flex
+      width: calc(33% - 8px)
+      height: 130px
+      margin: 4px
+      div
+        align-self: flex-end
+        position: relative
+        width: 100%
+        text-align: center
+        background: rgba(0,0,0,.83)
+        color: rgba(255,255,255,.86)
+        font-size: 20px
+        padding: 14px
+
+  .sources
+    padding: 0
+    margin: 0
+    li span
+      cursor: pointer
+      &.active
+        color: #3D5AFE
+
+  .titles
+    height: 460px
+    .mdl-cell
+      position: relative
+    .mdl-card__title
+      min-height: 130px
+      .mdl-card__title-text
+        font-size: 18px
+        &.with-img
+          background: rgba(0,0,0,.7)
+    .mdl-card__supporting-text
+      padding: 0
+      width: 100%
+      p
+        font-size: inherit
+        margin: 0
+        line-height: inherit
+
+    a.mdl-button
+      position: absolute
+      bottom: 0px
+
+  #sourceAdded
+    vertical-align: middle
+    line-height: 36px
+    color: #999
+
+
+
+// Common use classes
+.hidden
+  display: none
+
+.bold
+  font-weight: bold
+
+.text-center
+  text-align: center
+
+.left-20
+  margin-left: 20px !important
+
+.no-flex-grow
+  flex-grow: initial !important
+
+.mdl-spinner i
+  font-size: 28px
+
+i.open_in_new
+  font-size: 15px
+  position: relative
+  top: -3px
+  color: #8C9EFF
+
+#scroll_up
+  position: fixed
+  top: 50%
+  cursor: pointer
+  z-index: 100
+
+@media screen and (max-width: 1024px)
+  .mdl-layout__header
+    display: block !important
+  .main-content
+    max-width: 100%
+  dialog.mdl-dialog
+    top:  0
+    width: auto
+    &.wide
+      max-width: 100%
+    .description
+      text-align: left
+  .left-20
+    margin-left: 0 !important
+
+  header .hot-briefs
+    top: 10px
+    left: 300px
+
+@media (max-width: 479px)
+  .mdl-grid
+    max-width: calc(100% - 16px)
+  #scroll_up
+    right: 0px
+    bottom: 0px
+    top: inherit
+  header .hot-briefs
+    display: none
+  .edit_brief_form
+    .titles
+      height: auto
+      .mdl-button
+        position: initial
+    .topics .topic
+      width: 100%

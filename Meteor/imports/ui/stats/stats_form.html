@@ -1,0 +1,32 @@
+<template name="stats_form">
+    <div class="mdl-list" style="width: 400px; margin: auto;">
+        {{#each briefs}}
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <span>
+                      <span style="color: #3f51b5">B:</span>
+                      <a onclick="FlowRouter.go('brief', {briefName: '{{name}}'});">
+                          {{name}}
+                      </a>
+                  </span>
+                </span>
+                {{#if isAdmin}}
+                    <span class="mdl-list__item-secondary-info">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{#if popularity}} is-dirty {{/if}}" style="width:40px;padding:0px">
+                            <input class="mdl-textfield__input" type="text" id="briefPopularity" name="{{name}}" value="{{popularity}}">
+                        </div>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="savePopularity" name="{{name}}">
+                            <i class="material-icons">save</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="removeBrief" name="{{name}}" style="float:right; margin-left: 10px">
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </span>
+                {{else}}
+                    <span class="mdl-list__item-secondary-info">{{popularity}}</span>
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+
+</template>

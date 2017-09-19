@@ -1,0 +1,37 @@
+<template name="top_menu">
+    <header class='mdl-layout__header'>
+        <div class='mdl-layout__header-row'>
+            <button id='nav-button' class='mdl-button mdl-js-button mdl-button--icon'>
+                <i class='material-icons'>menu</i>
+            </button>
+
+            {{#if currentUser }}
+            {{else}}
+                <button type='button' class='mdl-button mdl-js-button mdl-button--icon with-tooltip' id='login'>
+                    <i class='material-icons'>exit_to_app</i>
+                </button>
+                <div class='mdl-tooltip' for='login'>
+                    Log in
+                </div>
+            {{/if}}
+
+            <div class='page-headline'>
+                {{{page_headline}}}
+            </div>
+            {{#if hot_briefs}}
+                <div class="hot-briefs">
+                    <i class="material-icons with-tooltip" id="whatshot">whatshot</i>
+                    <div class='mdl-tooltip' for='whatshot'>
+                        Hot today
+                    </div>
+                    {{#each hot_briefs}}
+                        <a class="mdl-button mdl-js-button" onclick="FlowRouter.go('brief', {briefName: '{{name}}'});">{{name}} </a>
+                    {{/each}}
+                </div>
+            {{/if}}
+
+            <div class='mdl-layout-spacer'></div>
+            {{> search_form }}
+        </div>
+    </header>
+</template>

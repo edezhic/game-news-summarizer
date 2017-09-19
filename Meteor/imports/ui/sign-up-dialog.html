@@ -1,0 +1,39 @@
+<template name="dialog">
+    <dialog class="mdl-dialog sign-up-dialog">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--icon close" id="close-dialog">
+            <i class="material-icons">clear</i>
+        </button>
+
+        <h5 class="mdl-dialog__title"><span class="action"></span> <span class="info"> or </span><span class="button"></span></h5>
+
+        <div class="mdl-grid user-info">
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-phone">
+                <div class="description">
+                   briefs.live/b:
+                </div>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col mdl-cell--6-col-phone username-input">
+                <input class="mdl-textfield__input" type="text" id="username">
+                <label class="mdl-textfield__label" for="username">Username</label>
+                <span id="name-error" class="mdl-textfield__error"></span>
+            </div>
+
+        </div>
+        <div class="mdl-grid user-info">
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="description">
+                    Password:
+                </div>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col password-input">
+                <input class="mdl-textfield__input" type="password" id="password">
+                <label class="mdl-textfield__label" for="password">Password</label>
+                <span id="pass-error" class="mdl-textfield__error"></span>
+            </div>
+        </div>
+
+        <div class="mdl-dialog__actions">
+            <button autofocus type="button" id="action-button" class="mdl-button mdl-button--raised mdl-color--indigo-500" action="">Save</button>
+        </div>
+    </dialog>
+</template>

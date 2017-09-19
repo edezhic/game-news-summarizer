@@ -1,0 +1,8 @@
+saved_pages/
+Dataset/
+dump/
+.idea/
+.ipynb_checkpoints/
+*.log
+*.pyc
+

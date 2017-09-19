@@ -1,0 +1,24 @@
+<template name="side_nav">
+    <div class='mdl-layout__drawer' id='side-nav'>
+        <span class='mdl-layout-title'>B:riefs <span style="opacity: 0.4;font-size: 0.8em">beta</span></span>
+        <nav class='mdl-navigation brief-nav'>
+            {{#if currentUser}}
+                {{> user_brief}}
+            {{else}}
+                <a class='mdl-navigation__link text-center'>
+                    <button id='new-brief-button' class='mdl-button mdl-js-button mdl-button--icon mdl-color-text--pink-500 with-tooltip'>
+                        <i class='material-icons'>add</i>
+                    </button>
+                    <div class='mdl-tooltip' for='new-brief-button'>
+                        Create Brief
+                    </div>
+                </a>
+            {{/if}}
+
+            {{#each defaultBriefs}}
+                {{> brief}}
+            {{/each}}
+
+        </nav>
+    </div>
+</template>

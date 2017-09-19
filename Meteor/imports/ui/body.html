@@ -1,0 +1,25 @@
+<template name="body_layout">
+    <body>
+    {{#HammerTouchArea gestureMap=templateGestures}}
+
+        {{> side_nav}}
+
+        {{> dialog }}
+        {{> help_dialogs }}
+
+        <div class='mdl-js-layout mdl-layout'>
+
+            {{>top_menu}}
+
+            <main class='mdl-layout__content main-content' style="z-index: initial">
+
+                {{>Template.dynamic template=content}}
+
+
+            </main>
+
+        </div>
+
+    {{/HammerTouchArea}}
+    </body>
+</template>

@@ -1,0 +1,11 @@
+{
+  "name": "simple-todos",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "meteor-node-stubs": "^0.2.3",
+    "node-opml-parser": "^1.0.0"
+  }
+}

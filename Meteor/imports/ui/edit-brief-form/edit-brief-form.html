@@ -1,0 +1,189 @@
+<template name="edit_brief_form">
+    <div class="mdl-grid edit_brief_form">
+        <div class="mdl-cell mdl-cell--12-col return_to_topics " style="display: none">
+            <button class="mdl-button mdl-js-button">
+                <i class="material-icons">arrow_back</i><h6>Return to topics</h6>
+            </button>
+        </div>
+        <div class="mdl-cell mdl-cell--12-col topics_list">
+            <ul class='topics'>
+                {{#each topics}}
+                    <div class="topic" name="{{this}}" style="background: url('/imgs/topics/{{this}}.jpg') center / cover;">
+                        <div>{{this}}</div>
+                    </div>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="mdl-cell mdl-cell--4-col sources_list" style="display: none;">
+            {{#if isAdmin}}
+                {{#if userSourcesExist}}
+                    <h6> Type 'user' sources: </h6>
+                    <ul class='mdl-list sources'>
+                        {{#each userSources}}
+                            <li class="mdl-list__item">
+                                <div class="mdl-list__item-primary-content" >
+                                    <span class="sourceName" name="{{name}}">{{name}}</span>
+                                </div>
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect {{containsSource name}} is-upgraded" for="checkbox-1" name="{{name}}" url="{{url}}">
+                                    <input type="checkbox" id="checkbox-1" class="mdl-switch__input" checked="">
+                                    <div class="mdl-switch__track"></div><div class="mdl-switch__thumb"><span class="mdl-switch__focus-helper"></span></div><span class="mdl-switch__ripple-container mdl-js-ripple-effect mdl-ripple--center"><span class="mdl-ripple"></span></span>
+                                </label>
+                            </li>
+                        {{/each}}
+                    </ul>
+                    <h6> --- </h6>
+                {{/if}}
+                {{#if hiddenSourcesExist}}
+                    <h6> Hidden sources: </h6>
+                    <ul class='mdl-list sources'>
+                        {{#each hiddenSources}}
+                            <li class="mdl-list__item">
+                                <div class="mdl-list__item-primary-content" >
+                                    <span class="sourceName" name="{{name}}">{{name}}</span>
+                                </div>
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect {{containsSource name}} is-upgraded" for="checkbox-1" name="{{name}}" url="{{url}}">
+                                    <input type="checkbox" id="checkbox-1" class="mdl-switch__input" checked="">
+                                    <div class="mdl-switch__track"></div><div class="mdl-switch__thumb"><span class="mdl-switch__focus-helper"></span></div><span class="mdl-switch__ripple-container mdl-js-ripple-effect mdl-ripple--center"><span class="mdl-ripple"></span></span>
+                                </label>
+                            </li>
+                        {{/each}}
+                    </ul>
+                    <h6> --- </h6>
+                {{/if}}
+                {{#if zeroSourcesExist}}
+                    <h6> Zero entries sources: </h6>
+                    <ul class='mdl-list sources'>
+                        {{#each zeroSources}}
+                            <li class="mdl-list__item">
+                                <div class="mdl-list__item-primary-content" >
+                                    <span class="sourceName" name="{{name}}">{{name}}</span>
+                                </div>
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect {{containsSource name}} is-upgraded" for="checkbox-1" name="{{name}}" url="{{url}}">
+                                    <input type="checkbox" id="checkbox-1" class="mdl-switch__input" checked="">
+                                    <div class="mdl-switch__track"></div><div class="mdl-switch__thumb"><span class="mdl-switch__focus-helper"></span></div><span class="mdl-switch__ripple-container mdl-js-ripple-effect mdl-ripple--center"><span class="mdl-ripple"></span></span>
+                                </label>
+                            </li>
+                        {{/each}}
+                    </ul>
+                    <h6> --- </h6>
+                {{/if}}
+            {{/if}}
+
+            <ul class='mdl-list sources'>
+                {{#each Sources}}
+                    <li class="mdl-list__item">
+                        <div class="mdl-list__item-primary-content" >
+                            <span class="sourceName" name="{{name}}">{{name}}</span>
+                        </div>
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect {{containsSource name}} is-upgraded" for="checkbox-1" name="{{name}}" url="{{url}}">
+                            <input type="checkbox" id="checkbox-1" class="mdl-switch__input" checked="">
+                            <div class="mdl-switch__track"></div><div class="mdl-switch__thumb"><span class="mdl-switch__focus-helper"></span></div><span class="mdl-switch__ripple-container mdl-js-ripple-effect mdl-ripple--center"><span class="mdl-ripple"></span></span>
+                        </label>
+                    </li>
+                {{/each}}
+            </ul>
+
+        </div>
+        <div class="mdl-cell mdl-cell--8-col titles">
+            <div class='mdl-grid'>
+                <div class="mdl-cell mdl-cell--12-col">
+                    {{#if isAdmin}}
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{#if source_topics}} is-dirty {{/if}}">
+                            <input class="mdl-textfield__input" type="text" id="sourceTopic" value="{{source_topics}}">
+                            <label class="mdl-textfield__label" for="sourceTopic">Source topic</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{#if source_url}} is-dirty {{/if}}">
+                            <input class="mdl-textfield__input" type="text" id="sourceUrl" value="{{source_url}}">
+                            <label class="mdl-textfield__label" for="sourceUrl">Source url</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="addSourceToCustomBriefName">
+                            <label class="mdl-textfield__label" for="addSourceToCustomBriefName">BriefName where to add</label>
+                        </div>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="addSourceToCustomBrief">
+                            <i class="material-icons" style="margin:auto">add</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="saveSource">
+                            <i class="material-icons">save</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="setSourceTypeRss">
+                            <i class="material-icons">rss_feed</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="setSourceTypeWebsite">
+                            <i class="material-icons">public</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="removeSource" style="float:right">
+                            <i class="material-icons">delete</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="hideSource" style="float:right">
+                            <i class="material-icons">visibility_off</i>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--icon" action="showSource" style="float:right">
+                            <i class="material-icons">visibility_on</i>
+                        </button>
+                        {{#if isWebsite}}
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label website_param {{#if domain}}is-dirty{{/if}}">
+                                <input class="mdl-textfield__input" type="text" id="domain" value="{{domain}}">
+                                <label class="mdl-textfield__label" for="domain">domain</label>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label website_param {{#if home_url}}is-dirty{{/if}}">
+                                <input class="mdl-textfield__input" type="text" id="home_url" value="{{home_url}}">
+                                <label class="mdl-textfield__label" for="home_url">home_url</label>
+                            </div>
+                            {{#each params}}
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label website_param {{#if param this}}is-dirty{{/if}}">
+                                    <input class="mdl-textfield__input" type="text" id="{{this}}" value="{{param this}}">
+                                    <label class="mdl-textfield__label" for="{{this}}">{{this}}</label>
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+                </div>
+                {{#each lastTitles}}
+                    <div class="mdl-cell mdl-cell--6-col">
+                        <div class="mdl-card__title mdl-card--expand {{#if img_src}}with-img{{/if}}" style="background: url('{{img_src}}') center / cover;">
+                            <div class="mdl-card__title-text">
+                                {{title}}
+                                {{#if isAdmin}}
+                                    <button class="mdl-button mdl-js-button mdl-button--icon" action="deleteSummary" id="{{_id._str}}" style="position:absolute;bottom:0px;right:30px;">
+                                        <i class="material-icons" style="color:white">delete</i>
+                                    </button>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col">
+                        <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+                            {{{text}}}
+                        </div>
+                        <a href="{{url}}" target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect summary_link">
+                            {{source}}
+                            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
+                        </a>
+                    </div>
+
+                {{/each}}
+            </div>
+
+        </div>
+        <div class="mdl-cell mdl-cell--12-col add_source_form" style="min-height:100px; display: none" >
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label left-20">
+                <input class="mdl-textfield__input" type="text" id="sourceName">
+                <label class="mdl-textfield__label" for="sourceName">Source name</label>
+                <span id="sourceName-error" class="mdl-textfield__error"></span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label left-20">
+                <input class="mdl-textfield__input" type="text" id="addSourceUrl">
+                <label class="mdl-textfield__label" for="addSourceUrl">Source url</label>
+                <span id="sourceUrl-error" class="mdl-textfield__error"></span>
+            </div>
+            <i class="material-icons with-tooltip" id="sourceUrlInfo">info</i>
+            <div class="mdl-tooltip" for="sourceUrlInfo">
+                RSS feed, Subreddit, FB page, Twitter, Instagram, Youtube channel, VK or any website
+            </div>
+            <button id="suggestion-button" class="mdl-button mdl-js-button mdl-button--primary left-20" action="addSource">Add source</button>
+            <div id="sourceAdded" style="display: none">Source will be parsed soon</div>
+        </div>
+
+    </div>
+</template>

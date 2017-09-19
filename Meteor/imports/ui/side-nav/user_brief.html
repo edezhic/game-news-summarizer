@@ -1,0 +1,18 @@
+<template name="user_brief">
+    <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" onclick="FlowRouter.go('brief', {briefName: '{{currentUser.username}}'});" id="{{currentUser.username}}">
+    {{currentUser.username}}
+        <button id="edit-brief-button" class="mdl-button mdl-js-button mdl-button--icon with-tooltip">
+            <i class="material-icons mdl-color-text--pink-500" style="font-size: 16px">settings</i>
+        </button>
+        <div class="mdl-tooltip" for="edit-brief-button">
+            Edit brief
+        </div>
+
+        <button type='button' class='mdl-button mdl-js-button mdl-button--icon with-tooltip' id='logout'>
+            <i class='material-icons' style="font-size: 16px">power_settings_new</i>
+        </button>
+        <div class='mdl-tooltip' for='logout'>
+            Sign out
+        </div>
+    </a>
+</template>

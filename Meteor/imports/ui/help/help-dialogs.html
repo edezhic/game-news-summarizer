@@ -1,0 +1,62 @@
+<template name="help_dialogs">
+    <dialog class="mdl-dialog help-dialog" id="first">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--icon close" id="close-dialog">
+            <i class="material-icons">clear</i>
+        </button>
+        <h5 class="mdl-dialog__title"> Hi!</h5>
+        <div class="mdl-dialog__content">
+            <p>
+                Select a brief and read dozens of sources on a single page.
+            </p>
+            <p>
+                You can also <a id="new-brief-button">create Your own brief</a>. Just think of a name for it and password for futher editing.
+            </p>
+            <p>
+                That simple.
+            </p>
+        </div>
+        <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+            <button type="button" class="mdl-button mdl-color-text--indigo-500" action="close">Got it</button>
+        </div>
+    </dialog>
+    <dialog class="mdl-dialog help-dialog" id="editBrief">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--icon close" id="close-dialog">
+            <i class="material-icons">clear</i>
+        </button>
+        <h5 class="mdl-dialog__title">Go edit</h5>
+        <div class="mdl-dialog__content">
+            <p>
+                First, select a topic of interest.
+            </p>
+            <p>
+                Then You can choose sources from list, or add Your own urls with a simple form below.
+            </p>
+            <p>
+                That simple.
+            </p>
+        </div>
+        <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+            <button type="button" class="mdl-button mdl-color-text--indigo-500" action="close">Got it</button>
+        </div>
+    </dialog>
+    <dialog class="mdl-dialog help-dialog" id="loggedinBrief">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--icon close" id="close-dialog">
+            <i class="material-icons">clear</i>
+        </button>
+        <h5 class="mdl-dialog__title">Add sources</h5>
+        <div class="mdl-dialog__content">
+            <p>
+                You can use cards menu (bottom-right corner) to add sources directly to Your brief.
+            </p>
+            <p>
+                Check out some other briefs to find something You like.
+            </p>
+            <p>
+                That simple.
+            </p>
+        </div>
+        <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+            <button type="button" class="mdl-button mdl-color-text--indigo-500" action="close">Got it</button>
+        </div>
+    </dialog>
+</template>
